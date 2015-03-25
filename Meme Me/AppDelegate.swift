@@ -13,6 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //MARK: - Shared storage properties
+    
+    //Shared temporary storage of memes and a flag for showing a label
+    //in SentMemesDetailViewController.
+    var memes = [Meme]()
+    var shouldShowLabel = true
+    
+    //MARK: -
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
