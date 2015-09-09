@@ -15,7 +15,7 @@ class SentMemesTableViewController: UITableViewController, UITableViewDataSource
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     let reuseIdentifier = "MemeTableViewCell"
-    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var memes: [Meme]!
     
     //MARK: - Overrides
@@ -63,7 +63,7 @@ class SentMemesTableViewController: UITableViewController, UITableViewDataSource
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as SentMemesTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SentMemesTableViewCell
         
         //Set up cell with data from Meme object.
         cell.cellImageView.image = memes[indexPath.row].memedImage
@@ -92,7 +92,7 @@ class SentMemesTableViewController: UITableViewController, UITableViewDataSource
         
         //Get meme image, pass it and indexPath to the detail view controller.
         let image = memes[indexPath.row].memedImage
-        let nextVC = self.storyboard?.instantiateViewControllerWithIdentifier("SentMemesDetailViewController") as SentMemesDetailViewController
+        let nextVC = self.storyboard?.instantiateViewControllerWithIdentifier("SentMemesDetailViewController") as! SentMemesDetailViewController
         
         nextVC.receivedImage = image
         nextVC.receivedIndex = indexPath

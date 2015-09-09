@@ -18,7 +18,7 @@ class SentMemesDetailViewController: UIViewController {
     var receivedImage: UIImage!
     var receivedIndex: NSIndexPath!
     
-    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     //MARK: - Overrides
     //MARK: View methods
@@ -88,7 +88,7 @@ class SentMemesDetailViewController: UIViewController {
             style: .Default,
             handler: { (action) in
                 
-                let nextVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as MemeEditorViewController
+                let nextVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
                 self.navigationController?.presentViewController(nextVC, animated: true, completion: nil)
             }
         )

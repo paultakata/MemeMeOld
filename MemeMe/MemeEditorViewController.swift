@@ -27,7 +27,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var memeImageView: UIImageView!
     
-    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     //Use "Impact" font for true meme wow factor.
     let memeTextAttributes = [
@@ -95,11 +95,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     //MARK: Touch responder
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         //Hide the keyboard if the user touches anywhere
         //outside the keyboard area.
-        let touch = touches.anyObject() as UITouch
+        let touch = touches.first as! UITouch
         
         if touch.phase == UITouchPhase.Began {
             
@@ -208,7 +208,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as NSValue
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         
         return keyboardSize.CGRectValue().height
     }

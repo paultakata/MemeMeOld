@@ -12,7 +12,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     
     //MARK: - Properties
     
-    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let reuseIdentifier = "MemeCollectionViewCell"
     var memes: [Meme]!
     
@@ -55,7 +55,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as SentMemesCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SentMemesCollectionViewCell
         
         //Configure cell background and image.
         cell.backgroundColor = UIColor.blackColor()
@@ -70,7 +70,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
         
         //Get meme image, pass it and indexPath to the detail view controller.
         let image = memes[indexPath.item].memedImage
-        let nextVC = self.storyboard?.instantiateViewControllerWithIdentifier("SentMemesDetailViewController") as SentMemesDetailViewController
+        let nextVC = self.storyboard?.instantiateViewControllerWithIdentifier("SentMemesDetailViewController") as! SentMemesDetailViewController
         
         nextVC.receivedImage = image
         nextVC.receivedIndex = indexPath
